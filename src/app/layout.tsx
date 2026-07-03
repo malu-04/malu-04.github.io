@@ -1,11 +1,20 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "../styles/globals.css";
-import { ThemeProvider } from "../components/ThemeProvider";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 export const metadata: Metadata = {
   title: "Malu — Home",
   description: "Malu home page",
+  icons: {
+    icon: "/favicon.ico",
+  },
+};
+
+export const viewport: Viewport = {
   themeColor: "#4c33d8",
+  colorScheme: "light dark",
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
