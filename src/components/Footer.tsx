@@ -64,7 +64,7 @@ export default function Footer() {
                   color: "var(--text-primary)",
                 }}
               >
-                codewithmukesh
+                malu
               </span>
             </div>
             <p
@@ -74,8 +74,8 @@ export default function Footer() {
                 lineHeight: 1.7,
               }}
             >
-              Real .NET, real production, every week. Written by Mukesh Murugan
-              — Solutions Architect and Microsoft MVP based in Trivandrum, India.
+              Real .NET, real production, every week. Written by Malumbo Mkandawire
+              — Solutions Architect and Microsoft MVP based in Tri, India.
             </p>
           </div>
 
@@ -244,7 +244,7 @@ export default function Footer() {
               fontFamily: "JetBrains Mono, monospace",
             }}
           >
-            © {new Date().getFullYear()} codewithmukesh · Mukesh Murugan · All rights reserved
+            © {new Date().getFullYear()} Malumbo Mkandawire · All rights reserved
           </p>
           <p
             style={{
@@ -253,7 +253,7 @@ export default function Footer() {
               fontFamily: "JetBrains Mono, monospace",
             }}
           >
-            Built with Next.js · Theme #4c33d8
+          keep coding
           </p>
         </div>
       </div>
