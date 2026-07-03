@@ -1,96 +1,235 @@
-'use client'
+"use client";
+import { useState } from "react";
+import Link from "next/link";
+import Button from "@/components/ui/Button";
+import { useTheme } from "@/components/ThemeProvider";
 
-import * as Headless from '@headlessui/react'
-import clsx from 'clsx'
-import { LayoutGroup, motion } from 'motion/react'
-import React, { forwardRef, useId } from 'react'
-import { TouchTarget } from './button'
-import { Link } from './link'
+export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
-export function Navbar({ className, ...props }: React.ComponentPropsWithoutRef<'nav'>) {
-  return <nav {...props} className={clsx(className, 'flex flex-1 items-center gap-4 py-2.5')} />
-}
-
-export function NavbarDivider({ className, ...props }: React.ComponentPropsWithoutRef<'div'>) {
-  return <div aria-hidden="true" {...props} className={clsx(className, 'h-6 w-px bg-zinc-950/10 dark:bg-white/10')} />
-}
-
-export function NavbarSection({ className, ...props }: React.ComponentPropsWithoutRef<'div'>) {
-  let id = useId()
+  const navbarBg = theme === "dark"
+    ? "rgba(13,13,18,0.95)"
+    : "rgba(255,255,255,0.95)";
 
   return (
-    <LayoutGroup id={id}>
-      <div {...props} className={clsx(className, 'flex items-center gap-3')} />
-    </LayoutGroup>
-  )
-}
-
-export function NavbarSpacer({ className, ...props }: React.ComponentPropsWithoutRef<'div'>) {
-  return <div aria-hidden="true" {...props} className={clsx(className, '-ml-4 flex-1')} />
-}
-
-export const NavbarItem = forwardRef(function NavbarItem(
-  {
-    current,
-    className,
-    children,
-    ...props
-  }: { current?: boolean; className?: string; children: React.ReactNode } & (
-    | ({ href?: never } & Omit<Headless.ButtonProps, 'as' | 'className'>)
-    | ({ href: string } & Omit<React.ComponentPropsWithoutRef<typeof Link>, 'className'>)
-  ),
-  ref: React.ForwardedRef<HTMLAnchorElement | HTMLButtonElement>
-) {
-  let classes = clsx(
-    // Base
-    'relative flex min-w-0 items-center gap-3 rounded-lg p-2 text-left text-base/6 font-medium text-zinc-950 sm:text-sm/5',
-    // Leading icon/icon-only
-    '*:data-[slot=icon]:size-6 *:data-[slot=icon]:shrink-0 *:data-[slot=icon]:fill-zinc-500 sm:*:data-[slot=icon]:size-5',
-    // Trailing icon (down chevron or similar)
-    '*:not-nth-2:last:data-[slot=icon]:ml-auto *:not-nth-2:last:data-[slot=icon]:size-5 sm:*:not-nth-2:last:data-[slot=icon]:size-4',
-    // Avatar
-    '*:data-[slot=avatar]:-m-0.5 *:data-[slot=avatar]:size-7 *:data-[slot=avatar]:[--avatar-radius:var(--radius-md)] sm:*:data-[slot=avatar]:size-6',
-    // Hover
-    'data-hover:bg-zinc-950/5 data-hover:*:data-[slot=icon]:fill-zinc-950',
-    // Active
-    'data-active:bg-zinc-950/5 data-active:*:data-[slot=icon]:fill-zinc-950',
-    // Dark mode
-    'dark:text-white dark:*:data-[slot=icon]:fill-zinc-400',
-    'dark:data-hover:bg-white/5 dark:data-hover:*:data-[slot=icon]:fill-white',
-    'dark:data-active:bg-white/5 dark:data-active:*:data-[slot=icon]:fill-white'
-  )
-
-  return (
-    <span className={clsx(className, 'relative')}>
-      {current && (
-        <motion.span
-          layoutId="current-indicator"
-          className="absolute inset-x-2 -bottom-2.5 h-0.5 rounded-full bg-zinc-950 dark:bg-white"
-        />
-      )}
-      {typeof props.href === 'string' ? (
+    <header
+      style={{
+        position: "sticky",
+        top: 0,
+        zIndex: 50,
+        background: navbarBg,           // ← Now dynamic
+        backdropFilter: "blur(12px)",
+        borderBottom: "1px solid var(--surface-border)",
+      }}
+    >
+      <div
+        style={{
+          maxWidth: "1100px",
+          margin: "0 auto",
+          padding: "0 24px",
+          height: "56px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: "24px",
+        }}
+      >
+        {/* Logo */}
         <Link
-          {...props}
-          className={classes}
-          data-current={current ? 'true' : undefined}
-          ref={ref as React.ForwardedRef<HTMLAnchorElement>}
+          href="/"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "8px",
+            textDecoration: "none",
+            flexShrink: 0,
+          }}
         >
-          <TouchTarget>{children}</TouchTarget>
+          <div
+            style={{
+              width: "28px",
+              height: "28px",
+              borderRadius: "7px",
+              background: "var(--brand-purple)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexShrink: 0,
+            }}
+          >
+            <span
+              style={{
+                color: "#fff",
+                fontSize: "13px",
+                fontWeight: 700,
+                fontFamily: "JetBrains Mono, monospace",
+              }}
+            >
+              M
+            </span>
+          </div>
+          <span
+            style={{
+              fontSize: "14px",
+              fontWeight: 600,
+              color: "var(--text-primary)",
+              letterSpacing: "-0.01em",
+            }}
+          >
+            Malu
+          </span>
         </Link>
-      ) : (
-        <Headless.Button
-          {...props}
-          className={clsx('cursor-default', classes)}
-          data-current={current ? 'true' : undefined}
-          ref={ref}
-        >
-          <TouchTarget>{children}</TouchTarget>
-        </Headless.Button>
-      )}
-    </span>
-  )
-})
 
-export function NavbarLabel({ className, ...props }: React.ComponentPropsWithoutRef<'span'>) {
-  return <span {...props} className={clsx(className, 'truncate')} />
+        {/* Desktop nav */}
+        <nav
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "4px",
+            flex: 1,
+          }}
+          className="hidden-mobile"
+        >
+          {[
+            { label: "Blog", href: "/blog" },
+            { label: "Courses", href: "/courses" },
+            { label: "Sponsor", href: "/sponsor" },
+            { label: "Contact", href: "/contact" },
+          ].map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              className="nav-link"
+              style={{ padding: "6px 12px", borderRadius: "6px" }}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+
+        {/* Right side */}
+        <div style={{ display: "flex", alignItems: "center", gap: "8px", flexShrink: 0 }}>
+          <button
+            className="btn-ghost"
+            style={{ gap: "6px", fontSize: "13px" }}
+            aria-label="Search"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+            <span className="hide-sm">Search</span>
+            <span style={{ fontSize: "11px", color: "var(--text-muted)", fontFamily: "JetBrains Mono, monospace" }} className="hide-sm">
+              Ctrl·K
+            </span>
+          </button>
+
+          {/* Theme Toggle */}
+          <button
+            onClick={toggleTheme}
+            className="btn-ghost"
+            style={{
+              padding: "6px 8px",
+              width: "36px",
+              height: "36px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center"
+            }}
+            aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+            title={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+          >
+            {theme === "light" ? (
+              /* Moon Icon (Dark Mode) */
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+              </svg>
+            ) : (
+              /* Sun Icon (Light Mode) */
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="5" />
+                <line x1="12" y1="1" x2="12" y2="3" />
+                <line x1="12" y1="21" x2="12" y2="23" />
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                <line x1="1" y1="12" x2="3" y2="12" />
+                <line x1="21" y1="12" x2="23" y2="12" />
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+              </svg>
+            )}
+          </button>
+
+          <Button href="/newsletter" variant="primary">
+            Subscribe
+          </Button>
+
+          {/* Hamburger (Mobile) */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="show-mobile"
+            style={{
+              background: "transparent",
+              border: "1px solid var(--surface-border-light)",
+              borderRadius: "6px",
+              padding: "6px 8px",
+              cursor: "pointer",
+              color: "var(--text-secondary)",
+              display: "none",
+            }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile menu */}
+      {menuOpen && (
+        <div
+          style={{
+            borderTop: "1px solid var(--surface-border)",
+            background: "var(--surface-card)",
+            padding: "12px 24px 16px",
+          }}
+        >
+          {[
+            { label: "Home", href: "/" },
+            { label: "Blog", href: "/blog" },
+            { label: "Courses", href: "/courses" },
+            { label: "Sponsor", href: "/sponsor" },
+            { label: "Contact", href: "/contact" },
+          ].map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              onClick={() => setMenuOpen(false)}
+              style={{
+                display: "block",
+                padding: "10px 0",
+                color: "var(--text-secondary)",
+                textDecoration: "none",
+                fontSize: "14px",
+                borderBottom: "1px solid var(--surface-border)",
+              }}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      )}
+
+      <style>{`
+        @media (max-width: 640px) {
+          .hidden-mobile { display: none !important; }
+          .show-mobile { display: flex !important; }
+          .hide-sm { display: none !important; }
+        }
+      `}</style>
+    </header>
+  );
 }
