@@ -1,8 +1,5 @@
 name: Deploy to GitHub Pages
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 on:
   push:
     branches:
@@ -31,7 +28,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v6.4.0
         with:
-          node-version: 26
+          node-version: 24
 
       - name: Cache npm download cache
         uses: actions/cache@v4
