@@ -1,8 +1,7 @@
 "use client";
 
-import { publishCards } from '@/constants/publish';
-import { PublishCard } from '@/types';
-import Button from '@/components/ui/Button';
+import { publishCards } from '../constants/publish';
+import { PublishCard } from '../types';
 
 export default function WhatIPublish() {
   return (

@@ -1,4 +1,4 @@
-import { Audience } from '@/types';
+import { Audience } from '../types';
 
 export const audienceData: Audience[] = [
   {

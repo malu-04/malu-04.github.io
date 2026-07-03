@@ -1,7 +1,7 @@
 "use client";
 
-import { statsData } from '@/constants/stats';
-import { Stat } from '@/types';
+import { statsData } from '../constants/stats';
+import { Stat } from '../types';
 
 export default function Stats() {
   return (

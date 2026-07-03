@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import Button from "@/components/ui/Button";
-import { useTheme } from "@/components/ThemeProvider";
+import Button from "../components/ui/Button";
+import { useTheme } from "../components/ThemeProvider";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);

@@ -1,4 +1,4 @@
-import { Stat } from '@/types';
+import { Stat } from '../types';
 
 export const statsData: Stat[] = [
   {

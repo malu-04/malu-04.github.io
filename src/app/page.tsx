@@ -1,14 +1,13 @@
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import FeaturedArticle from "@/components/FeaturedArticle";
-import Stats from "@/components/Stats";
-import WhatIPublish from "@/components/WhatIPublish";
-import Articles from "@/components/Articles";
-import Resources from "@/components/Resources";
-import AuthorNote from "@/components/AuthorNote";
-import WhoIWriteFor from "@/components/WhoIWriteFor";
-import NewsletterCTA from "@/components/NewsletterCTA";
-import Footer from "@/components/Footer";
+import Navbar from "../components/Navbar";
+import Hero from "../components/Hero";
+import FeaturedArticle from "../components/FeaturedArticle";
+import Stats from "../components/Stats";
+import WhatIPublish from "../components/WhatIPublish";
+import Articles from "../components/Articles";
+import Resources from "../components/Resources";
+import AuthorNote from "../components/AuthorNote";
+import WhoIWriteFor from "../components/WhoIWriteFor";
+import Footer from "../components/Footer";
 
 export default function Home() {
   return (
@@ -31,7 +30,6 @@ export default function Home() {
       <Resources />
       <AuthorNote />
       <WhoIWriteFor />
-      <NewsletterCTA />
       <Footer />
     </main>
   );

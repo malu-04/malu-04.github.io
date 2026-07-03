@@ -1,7 +1,7 @@
 "use client";
 
-import { audienceData } from '@/constants/audience';
-import { Audience } from '@/types';
+import { audienceData } from '../constants/audience';
+import { Audience } from '../types';
 
 export default function WhoIWriteFor() {
   return (

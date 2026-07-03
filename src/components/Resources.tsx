@@ -1,8 +1,7 @@
 "use client";
 
-import { resourcesData } from '@/constants/resources';
-import { Resource } from '@/types';
-import Button from '@/components/ui/Button';
+import { resourcesData } from '../constants/resources';
+import { Resource } from '../types';
 
 export default function Resources() {
   return (

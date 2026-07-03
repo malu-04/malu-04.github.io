@@ -1,4 +1,4 @@
-import { PublishCard } from '@/types';
+import { PublishCard } from '../types';
 
 export const publishCards: PublishCard[] = [
   {

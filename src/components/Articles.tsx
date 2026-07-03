@@ -1,8 +1,8 @@
 "use client";
 
-import { mostReadArticles, latestArticles } from '@/constants/articles';
-import Tag from '@/components/ui/Tag';
-import { Article } from '@/types';
+import { mostReadArticles, latestArticles } from '../constants/articles';
+import Tag from '../components/ui/Tag';
+import { Article } from '../types';
 
 interface ArticleRowProps {
   article: Article;
