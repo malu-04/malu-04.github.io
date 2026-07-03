@@ -36,7 +36,7 @@ export default function HomePage() {
         Skip to main content
       </a>
 
-      <Navbar />
+      {/* <Navbar /> */}
 
       {/* Main content wrapper with mobile-first padding and responsive max-width */}
       <main
@@ -49,29 +49,29 @@ export default function HomePage() {
         </section>
 
         {/* Dynamic components wrapped in Suspense for graceful loading */}
-        <Suspense fallback={<SectionSkeleton />}>
+        {/* <Suspense fallback={<SectionSkeleton />}>
           <section aria-label="Featured Content">
             <FeaturedArticle />
           </section>
-        </Suspense>
+        </Suspense> */}
 
-        <Suspense fallback={<SectionSkeleton />}>
+        {/* <Suspense fallback={<SectionSkeleton />}>
           <section aria-label="Latest Articles">
             <Articles />
           </section>
-        </Suspense>
+        </Suspense> */}
 
-        <Suspense fallback={<SectionSkeleton />}>
+        {/* <Suspense fallback={<SectionSkeleton />}>
           <section aria-label="What I Publish">
             <WhatIPublish />
           </section>
-        </Suspense>
+        </Suspense> */}
 
-        <Suspense fallback={<SectionSkeleton />}>
+        {/* <Suspense fallback={<SectionSkeleton />}>
           <section aria-label="Audience">
             <WhoIWriteFor />
           </section>
-        </Suspense>
+        </Suspense> */}
 
         <Suspense fallback={<SectionSkeleton />}>
           <section aria-label="Site Statistics">
@@ -79,20 +79,20 @@ export default function HomePage() {
           </section>
         </Suspense>
 
-        <Suspense fallback={<SectionSkeleton />}>
+        {/* <Suspense fallback={<SectionSkeleton />}>
           <section aria-label="Developer Resources">
             <Resources />
           </section>
-        </Suspense>
+        </Suspense> */}
 
-        <Suspense fallback={<SectionSkeleton />}>
+        {/* <Suspense fallback={<SectionSkeleton />}>
           <section aria-label="About the Author">
             <AuthorNote />
           </section>
-        </Suspense>
+        </Suspense> */}
       </main>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
