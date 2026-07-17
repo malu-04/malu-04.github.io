@@ -1,6 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import "../styles/globals.css";
+
 import { ThemeProvider } from "@/components/ThemeProvider";
+import '@/styles/globals.css'
+import { Layout } from "@/components/Layout";
+import { Providers } from "@/providers";
 
 export const metadata: Metadata = {
   title: "Malu — Home",
@@ -17,20 +20,17 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout(
+  { children, }: { children: React.ReactNode; }
+) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-      </head>
-      <body>
-        <ThemeProvider>
-          {children}
-        </ThemeProvider>
+    <html lang="en" className="h-full antialiased" suppressHydrationWarning>
+      <body className="flex h-full">
+        <Providers>
+          <div className="flex w-full">
+            <Layout>{children}</Layout>
+          </div>
+        </Providers>
       </body>
     </html>
   );

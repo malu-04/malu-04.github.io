@@ -2,33 +2,110 @@
 
 export default function Hero() {
   return (
-    <section
-      style={{
-        padding: "72px 24px 64px",
-        maxWidth: "1100px",
-        margin: "0 auto",
-        position: "relative",
-      }}
-    >
-      {/* Main headline */}
-      <h2 >
-        Malumbo Mkandawire
-      </h2>
+    <section className="bg-white py-4 sm:py-12">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="max-w-4xl">
 
-      {/* Sub headline */}
-      <p
-        style={{
-          fontSize: "clamp(15px, 2vw, 17px)",
-          color: "var(--text-secondary)",
-          maxWidth: "600px",
-          lineHeight: 1.7,
-          marginBottom: "36px",
-        }}
-      >
-        Tutorials, deep-dives, and field notes on .NET, EF Core, Claude Code,
-        Docker, Terraform, and the system-design decisions that hold up in
-        production. Written when I've shipped something worth sharing.
-      </p>
+          {/* Identity Block */}
+          <div className="flex flex-col gap-0">
+            <p
+              className="
+                font-mono
+                text-xs
+                uppercase
+                tracking-[0.22em]
+                text-gray-500
+              "
+            >
+              Malumbo Mkandawire
+            </p>
+
+            <div className="flex items-center gap-3 text-sm text-gray-400">
+              <span className="font-medium text-gray-700">
+                Senior Software Engineer
+              </span>
+
+              <span>•</span>
+
+              <span>
+                Software Architect
+              </span>
+
+              <span>•</span>
+
+              <span>
+                Systems Builder
+              </span>
+            </div>
+          </div>
+
+
+          {/* Main Statement */}
+          <h1
+            className="
+              mt-8
+              max-w-3xl
+              text-3xl
+              font-semibold
+              leading-tight
+              tracking-tight
+              text-gray-900
+              sm:text-4xl
+            "
+          >
+            Engineering reliable digital systems across Africa.
+          </h1>
+
+
+          {/* Supporting Copy */}
+          <p
+            className="
+              mt-5
+              max-w-3xl
+              text-base
+              leading-7
+              text-gray-600
+              sm:text-lg
+            "
+          >
+            Results-driven engineer with 9+ years of experience designing,
+            developing, and maintaining secure enterprise applications for
+            regulated industries including healthcare, government, and
+            international development organizations.
+          </p>
+
+
+          <p
+            className="
+              mt-3
+              max-w-3xl
+              text-base
+              leading-7
+              text-gray-600
+              sm:text-lg
+            "
+          >
+            Specializing in{" "}
+            <span className="font-medium text-gray-900">
+              microservices
+            </span>
+            ,{" "}
+            <span className="font-medium text-gray-900">
+              cloud-native architecture
+            </span>
+            ,{" "}
+            <span className="font-medium text-gray-900">
+              API platforms
+            </span>
+            , and{" "}
+            <span className="font-medium text-gray-900">
+              engineering excellence
+            </span>
+            .
+          </p>
+
+        </div>
+      </div>
     </section>
   );
 }

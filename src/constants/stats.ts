@@ -2,27 +2,27 @@ import { Stat } from '../types';
 
 export const statsData: Stat[] = [
   {
-    label: "Years of experience",
-    value: "9+",
-    sub: "Since 2016",
-    note: "Enterprise systems across regulated sectors in Africa.",
-  },
-  {
-    label: "Countries impacted",
-    value: "10+",
-    sub: "Africa-wide",
-    note: "Malawi, Rwanda & regional operations.",
-  },
-  {
-    label: "SDK downloads",
+    label: "SDK Downloads",
     value: "10.3K+",
     sub: "Internal",
-    note: "Oaf.Ebs.Rabbit.Sdk — RabbitMQ communication layer.",
+    note: "Oaf.Ebs.Rabbit.Sdk - High-performance RabbitMQ communication layer powering reliable enterprise integrations.",
   },
   {
-    label: "Major platforms",
-    value: "8+",
-    sub: "Delivered",
-    note: "Health, agriculture, finance & government systems.",
+    label: "Countries Impacted",
+    value: "10+",
+    sub: "Across Africa",
+    note: "Active in Malawi, Rwanda, and multiple regional operations, delivering solutions at scale.",
   },
+  {
+    label: "Years of Excellence",
+    value: "9+",
+    sub: "Since 2018",
+    note: "Building robust enterprise systems for regulated industries across Africa.",
+  },
+  {
+    label: "Platforms Delivered",
+    value: "8+",
+    sub: "In Production",
+    note: "Health, agriculture, finance, and government solutions that drive real impact.",
+  }
 ];

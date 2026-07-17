@@ -1,94 +1,110 @@
 "use client";
 
-import { statsData } from '../constants/stats';
-import { Stat } from '../types';
+import { statsData } from "../constants/stats";
+import { Stat } from "../types";
 
 export default function Stats() {
   return (
-    <section
-      style={{
-        maxWidth: "1100px",
-        margin: "0 auto",
-        padding: "0 24px 80px",
-      }}
-    >
-      {/* Section header */}
-      <div style={{ marginBottom: "36px" }}>
-        <p className="section-eyebrow" style={{ marginBottom: "6px" }}>
-          01 · By the numbers
-        </p>
-        <h2
-          style={{
-            fontSize: "clamp(20px, 3vw, 26px)",
-            fontWeight: 700,
-            letterSpacing: "-0.02em",
-            color: "var(--text-primary)",
-          }}
-        >
-          A decade building scalable systems in Africa
-        </h2>
-      </div>
+    <section className="py-4 sm:py-8 lg:py-12">
+      <div className="mx-auto max-w-7xl px-4 lg:px-8">
+        <div className="mx-auto max-w-2xl lg:max-w-none">
+          {/* Section Header */}
+          <div>
+            <p className="section-eyebrow">
+              01 · By the numbers
+            </p>
 
-      {/* Stats grid */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-          gap: "1px",
-          background: "var(--surface-border)",
-          borderRadius: "12px",
-          overflow: "hidden",
-          border: "1px solid var(--surface-border)",
-        }}
-      >
-        {statsData.map((stat: Stat, i) => (
-          <div
-            key={i}
-            style={{
-              background: "var(--surface-card)",
-              padding: "28px 24px",
-              position: "relative",
-            }}
-          >
-            <p
+            <h2
+              className="font-bold tracking-tight"
               style={{
-                fontSize: "11px",
-                fontFamily: "JetBrains Mono, monospace",
-                color: "var(--text-muted)",
-                marginBottom: "4px",
-                letterSpacing: "0.04em",
+                fontSize: "clamp(20px, 3vw, 26px)",
+                color: "var(--text-primary)",
               }}
             >
-              {stat.sub}
-            </p>
-            <div
-              className="stat-number"
-              style={{
-                background:
-                  "linear-gradient(135deg, var(--text-primary) 0%, var(--text-accent) 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-                marginBottom: "6px",
-              }}
-            >
-              {stat.value}
-            </div>
-            <p
-              style={{
-                fontSize: "13px",
-                fontWeight: 600,
-                color: "var(--text-secondary)",
-                marginBottom: "4px",
-              }}
-            >
-              {stat.label}
-            </p>
-            <p style={{ fontSize: "12px", color: "var(--text-muted)" }}>
-              {stat.note}
-            </p>
+              A decade building scalable systems in Africa
+            </h2>
           </div>
-        ))}
+
+          {/* Stats Cards */}
+          <div className="mt-10 grid grid-cols-1 gap-0 sm:grid-cols-2 lg:grid-cols-4">
+            {statsData.map((stat: Stat, index) => (
+              <div
+                key={index}
+                className="
+
+                  p-7
+                  transition-all
+                  duration-200
+                  hover:-translate-y-px
+                "
+                style={{
+                  background: "#f3f4f6",
+                  boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
+                }}
+              >
+                {/* Category */}
+                <p
+                  className="
+                    mb-3
+                    font-mono
+                    text-[11px]
+                    font-medium
+                    uppercase
+                    tracking-[0.1em]
+                  "
+                  style={{
+                    color: "var(--text-muted)",
+                  }}
+                >
+                  {stat.sub}
+                </p>
+
+                {/* Number */}
+                <div
+                  className="
+                    mb-4
+                    text-4xl
+                    font-bold
+                    tracking-tight
+                  "
+                  style={{
+                    color: "var(--text-primary)",
+                  }}
+                >
+                  {stat.value}
+                </div>
+
+                {/* Divider */}
+                <div
+                  className="mb-4 h-px w-full"
+                  style={{
+                    background: "rgba(0,0,0,0.08)",
+                  }}
+                />
+
+                {/* Title */}
+                <p
+                  className="text-sm font-semibold"
+                  style={{
+                    color: "var(--text-secondary)",
+                  }}
+                >
+                  {stat.label}
+                </p>
+
+                {/* Description */}
+                <p
+                  className="text-sm leading-6"
+                  style={{
+                    color: "var(--text-muted)",
+                  }}
+                >
+                  {stat.note}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
